@@ -5,6 +5,8 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.6.10"
     kotlin("plugin.spring") version "1.6.10"
+    jacoco
+    id("com.github.nbaztec.coveralls-jacoco") version "1.2.14"
 }
 
 group = "com.example"
@@ -31,4 +33,11 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 }

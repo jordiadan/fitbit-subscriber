@@ -15,8 +15,10 @@ jobs:
 
     steps:
       - checkout
-
-      - run: sudo chmod +x ./gradlew clean build
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
+      - run: ./gradlew clean build
 
       - store_test_results:
           path: build/test-results

@@ -32,4 +32,14 @@ class GetWeightFromFitbitUseCase(private val fitbitRepository: FitbitRepository)
             println()
         }
     }
+
+    fun printNonNl(str: String?) {
+        println("Printing \"$str\":")
+
+        str?.let {                         // 4
+            print("\t")
+            customPrint(it)
+            println()
+        }
+    }
 }

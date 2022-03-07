@@ -28,7 +28,7 @@ jobs:
 #      - run: ./gradlew clean build
       - run:
           name: Analyze on SonarCloud
-          command: gradle build sonarqube -i
+          command: gradle build --build-cache sonarqube -i
 
 #      - store_test_results:
 #          path: build/test-results
@@ -37,9 +37,9 @@ jobs:
 #          path: build/reports/tests/test
 #          destination: test_result
 #
-#      - store_artifacts:
-#          path: build/reports/jacoco
-#          destination: test_coverage
+      - store_artifacts:
+          path: build/reports/jacoco
+          destination: test_coverage
 #
 #      - store_artifacts:
 #          path: build/reports/pmd

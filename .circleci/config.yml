@@ -22,9 +22,9 @@ jobs:
 
     steps:
       - checkout
-#      - run:
-#          name: chmod permissions
-#          command: chmod +x ./gradlew
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
       - run: ./gradlew clean build
       - run:
           name: Analyze on SonarCloud

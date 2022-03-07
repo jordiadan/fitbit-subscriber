@@ -7,12 +7,6 @@ version: 2.1
 
 jobs:
 
-#  build:
-#    docker:
-#      - image: 'circleci/openjdk:11-jdk'
-#    steps:
-#      - checkout
-
   build:
     docker:
       - image: cimg/openjdk:11.0.12
@@ -28,7 +22,7 @@ jobs:
 #      - run: ./gradlew clean build
       - run:
           name: Analyze on SonarCloud
-          command: gradle build --build-cache jacocoTestReport sonarqube -i
+          command: gradle build --build-cache check jacocoTestReport sonarqube -i
 
 #      - store_test_results:
 #          path: build/test-results

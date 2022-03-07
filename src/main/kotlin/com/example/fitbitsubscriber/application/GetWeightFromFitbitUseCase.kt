@@ -8,9 +8,4 @@ class GetWeightFromFitbitUseCase(private val fitbitRepository: FitbitRepository)
         val weightLog = fitbitRepository.getWeightLog(query.userId, query.date)
         return weightLog.weight
     }
-
-    fun test(query: GetWeightFromFitbitQuery): Double {
-        val weightLog = fitbitRepository.getWeightLog(query.userId, query.date)
-        return weightLog.weight
-    }
 }

@@ -40,7 +40,6 @@ sonarqube {
         property("sonar.projectKey", "jordiadan_fitbit-subscriber")
         property("sonar.organization", "jordiadan")
         property("sonar.host.url", "https://sonarcloud.io")
-//        property("sonar.coverage.jacoco.xmlReportPaths", "build/jacoco/test/jacocoTestReport.xml")
         property("xml.enabled", true)
     }
 }
@@ -49,7 +48,5 @@ tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
         csv.required.set(false)
-//        html.required.set(false)
-        //html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
     }
 }

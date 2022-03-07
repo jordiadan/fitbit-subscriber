@@ -2,8 +2,8 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.3
+#orbs:
+#  sonarcloud: sonarsource/sonarcloud@1.0.3
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -19,31 +19,15 @@ jobs:
 
     steps:
       - checkout
-      - sonarcloud/scan
+#      - sonarcloud/scan
 
       - run:
           name: Analyze on SonarCloud
           command: gradle build --build-cache check jacocoTestReport sonarqube -i
 
-#      - store_test_results:
-#          path: build/test-results
-#
-#      - store_artifacts:
-#          path: build/reports/tests/test
-#          destination: test_result
-#
       - store_artifacts:
           path: build/reports/jacoco
           destination: test_coverage
-#
-#      - store_artifacts:
-#          path: build/reports/pmd
-#          destination: pmd
-#
-#      - store_artifacts:
-#          path: build/reports/checkstyle
-#          destination: checkstyle
-
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows

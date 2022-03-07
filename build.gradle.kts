@@ -39,5 +39,6 @@ sonarqube {
         property("sonar.projectKey", "jordiadan_fitbit-subscriber")
         property("sonar.organization", "jordiadan")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/jacoco/test/jacocoTestReport.xml")
     }
 }

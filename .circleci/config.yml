@@ -22,32 +22,32 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: chmod permissions
-          command: chmod +x ./gradlew
-      - run: ./gradlew clean build
+#      - run:
+#          name: chmod permissions
+#          command: chmod +x ./gradlew
+#      - run: ./gradlew clean build
       - run:
           name: Analyze on SonarCloud
           command: gradle build sonarqube
 
-      - store_test_results:
-          path: build/test-results
-
-      - store_artifacts:
-          path: build/reports/tests/test
-          destination: test_result
-
-      - store_artifacts:
-          path: build/reports/jacoco
-          destination: test_coverage
-
-      - store_artifacts:
-          path: build/reports/pmd
-          destination: pmd
-
-      - store_artifacts:
-          path: build/reports/checkstyle
-          destination: checkstyle
+#      - store_test_results:
+#          path: build/test-results
+#
+#      - store_artifacts:
+#          path: build/reports/tests/test
+#          destination: test_result
+#
+#      - store_artifacts:
+#          path: build/reports/jacoco
+#          destination: test_coverage
+#
+#      - store_artifacts:
+#          path: build/reports/pmd
+#          destination: pmd
+#
+#      - store_artifacts:
+#          path: build/reports/checkstyle
+#          destination: checkstyle
 
 
 # Invoke jobs via workflows

@@ -28,7 +28,7 @@ jobs:
 #      - run: ./gradlew clean build
       - run:
           name: Analyze on SonarCloud
-          command: gradle build --build-cache sonarqube -i
+          command: gradle build --build-cache jacocoTestReport sonarqube -i
 
 #      - store_test_results:
 #          path: build/test-results

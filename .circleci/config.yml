@@ -6,11 +6,13 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 
 jobs:
-  check:
-    docker:
-      - image: amazoncorretto:11
-    steps:
-      - run: ./gradlew test jacocoTestReport coverallsJacoco
+
+#  build:
+#    docker:
+#      - image: 'circleci/openjdk:11-jdk'
+#    steps:
+#      - checkout
+
   build:
     docker:
       - image: cimg/openjdk:11.0.12
@@ -24,6 +26,9 @@ jobs:
           name: chmod permissions
           command: chmod +x ./gradlew
       - run: ./gradlew clean build
+      - run:
+          name: Analyze on SonarCloud
+          command: gradle build sonarqube"
 
       - store_test_results:
           path: build/test-results
@@ -50,5 +55,6 @@ jobs:
 workflows:
   build-workflow:
     jobs:
-      - check
-      - build
+      - build:
+          context: SonarCloud
+
